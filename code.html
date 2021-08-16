@@ -52,9 +52,34 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function helloWorld() {
-                            alert("Hello World")
+                        //controller function - retrieve the string value
+                        function getValue(){
+
+                            document.getElementById("alert").classList.add("invisible");
+                            let userString = document.getElementById("userString").value;
+                            let revString = reverseString(userString);
+                            displayString(revString);
+                        }
+
+                        //logic function - reverse the string
+                        function reverseString(userString){
+
+                            let revString = [];
+
+                            //reverse a string using a for loop
+                            for (let index = userString.length - 1; index >= 0; index--) {
+                                revString += userString[index];
+                            }
+
+                            return revString;
+                        }
+
+                        //view function
+                        function displayString(revString){
+
+                            document.getElementById("msg").innerHTML = `Your string reversed is ${revString}.`;
+
+                            document.getElementById("alert").classList.remove("invisible");
                         }
                     </code>
                     </pre>
